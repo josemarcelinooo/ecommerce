@@ -1,0 +1,60 @@
+import { useState, useEffect } from 'react';
+import AppNavBar from './components/AppNavBar';
+
+import Home from './pages/Home';
+import Register from './pages/Register';
+import LoginPage from './pages/Login';
+import Catalog from './pages/Products';
+import ErrorPage from './pages/Error';
+import ProductView from './pages/ProductView';
+import Logout from './pages/Logout';
+import AddCourse  from './pages/AddCourse'
+import UpdateCourse from './pages/UpdateCourse'
+
+import { UserProvider } from './UserContext';
+
+import { BrowserRouter as Router , Routes, Route } from 'react-router-dom';
+
+import './App.css';
+
+function App() {
+  const [user, setUser] = useState({
+    id: null,
+    isAdmin: null
+  })
+
+  useEffect(() => {
+    let token = localStorage.getItem('accessToken');
+
+    fetch("https://protected-beyond-20929.herokuapp.com/users/details", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+    })
+    .then(res => res.json())
+    .then(convertedData => {
+      console.log(convertedData)
+    })
+  }, []);
+
+  return (
+    <UserProvider value={{user, setUser}}>
+      <Router>
+         <AppNavBar />
+         <Routes>
+            <Route path='/' element={<Home />} /> 
+            <Route path='/register' element={<Register />}  />
+            <Route path='/products' element={<Catalog />} /> 
+            <Route path='*' element={<ErrorPage/>} />
+            <Route path= '/login' element={<LoginPage />} />
+            <Route path='/products/view/:id' element={<ProductView/>} />
+            <Route path='/logout' element={<Logout/>} />
+            <Route path='/add/courses' element={<AddCourse/>} />
+            <Route path='/update/courses' element={<UpdateCourse/>} />
+         </Routes>
+      </Router>
+    </UserProvider>
+  );
+};
+
+export default App;
