@@ -17,9 +17,6 @@ export default function About() {
 					</ul>
 				</Col>
 		</Row>
-	
-			
-		
 	);
 };
 
