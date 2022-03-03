@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 //we will now describe how we want our Navbar to look.
 function AppNavBar() {
   return(
-    <Navbar bg="primary" expand="lg">
+    <Navbar bg="secondary" expand="lg">
       <Container>
-        <Navbar.Brand> B156 Booking App </Navbar.Brand> 
+        <Navbar.Brand> Pandora's Box </Navbar.Brand> 
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse>
           <Nav className="ml-auto">

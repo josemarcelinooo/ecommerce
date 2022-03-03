@@ -5,8 +5,9 @@ import About from './../components/About'
 
 //Lets create a data object that will describe the content of the hero section
 const data = {
-  title: 'Welcome to the Home Page',
-  content: 'Opportunities for everyone, everywhere'
+  title: `Pandora's Box`,
+  content: 'You want it, we have it.',
+  cta: `Shop now`
 }
 
 

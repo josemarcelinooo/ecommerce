@@ -3,7 +3,7 @@ import {Row, Col,} from 'react-bootstrap';
 
 export default function About() {
 	return(
-		<Row className="p-5 aboutMe">
+		<Row className="p-5 aboutMe bg-secondary">
 				<Col xs={12} md={4}>
 					<h1 className="my-4"> About Me </h1>
 					<h2>Jose Marcelino Catacutan</h2>

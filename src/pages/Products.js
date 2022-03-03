@@ -5,7 +5,8 @@ import { Container } from 'react-bootstrap';
 
 const bannerDetails = {
    title: 'Product Catalog',
-   content: 'Browse through our Catalog of Products'
+   content: 'Browse through our Catalog of Products',
+   cta: 'See Items on Sale'
 }
 
 export default function Products() {

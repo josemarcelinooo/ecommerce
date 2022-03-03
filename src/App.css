@@ -3,12 +3,12 @@
   background-color: lightblue !important; 
 }
 
-.aboutMe {
+/*.aboutMe {
   background-color: lightblue !important;
-}
+}*/
 
 .productCard {
   min-height: 100%;
   background-color: lightsteelblue !important;
-  width: 250px;
+  width: 300px;
 }

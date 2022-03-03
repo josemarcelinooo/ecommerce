@@ -12,7 +12,7 @@ export default function Highlights() {
 			   <Col xs={12} md={4}>
 				  <Card className="p-4 cardHighlight">
 				     <Card.Body>
-				     	<Card.Title> Learn From Home </Card.Title>
+				     	<Card.Title> Wide Range of Selection </Card.Title>
 				     	<Card.Text>
 				     		Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Iure, quo?	
 				     	</Card.Text>
@@ -24,7 +24,7 @@ export default function Highlights() {
 			   <Col xs={12} md={4}>
 				  <Card className="p-4 cardHighlight">
 				     <Card.Body>
-				     	<Card.Title> Study Now, Pay Later </Card.Title>
+				     	<Card.Title> Authenticity Guaranteed </Card.Title>
 				     	<Card.Text>
 				     		Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Iure, quo?	
 				     	</Card.Text>
@@ -36,7 +36,7 @@ export default function Highlights() {
 				<Col xs={12} md={4}>
 					 <Card className="p-4 cardHighlight">
 					     <Card.Body>
-					     	<Card.Title> Be Part of our Community</Card.Title>
+					     	<Card.Title> Installment Options </Card.Title>
 					     	<Card.Text>
 					     		Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Iure, quo?	
 					     	</Card.Text>

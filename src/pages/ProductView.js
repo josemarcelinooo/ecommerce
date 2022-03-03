@@ -10,7 +10,8 @@ import { Link, useParams } from 'react-router-dom';
 
 const data = {
 	title: `Welcome to Pandora's Box!`,
-	content: 'Check out our school campus'
+	content: 'Check out our school campus',
+	cta: 'Buy Now'
 }
 
 export default function ProductView(){
@@ -73,11 +74,11 @@ export default function ProductView(){
 			         	</Card.Text>
 			         </Card.Body>
 
-			         <Button variant="warning" className="btn-block" onClick={enroll}> 
+			         <Button variant="success" className="btn-block" onClick={enroll}> 
 			            Buy Now
 			         </Button>
 
-			         <Link className="btn btn-success btn-block mb-5" to="/login">
+			         <Link className="btn btn-info btn-block mb-5" to="/login">
 			         	Add to Wishlist
 			         </Link>
 			      </Card>

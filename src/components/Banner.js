@@ -13,8 +13,8 @@ export default function Banner({bannerData}) {
 		<Row className="p-5" >
 			<Col>
 				<h1> {bannerData.title} </h1>
-				<p className="my-4"> {bannerData.content} </p>
-				<a className="btn btn-primary" href="/">INSERT ACTION HERE</a>	
+				<h5 className="my-4"> {bannerData.content} </h5>
+				<a className="btn btn-primary" href="/">{bannerData.cta}</a>	
 			</Col>
 		</Row>
 	);
