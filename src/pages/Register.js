@@ -15,10 +15,13 @@ export default function Register() {
 
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
+	const [middleName, setMiddleName] = useState('');
 	const [email, setEmail] = useState('');
 	const [mobileNo, setMobileNo] = useState('');
 	const [password1, setPassword1] = useState('');
 	const [password2, setPassword2] = useState(''); //password confirmation
+	const [gender, setGender] = useState('');
+	const [homeAddress, setHomeAddress] = useState('');
 
 	const [isActive, setIsActive] = useState(false);
 	const [isMatched, setIsMatched] = useState(false);
@@ -34,7 +37,7 @@ export default function Register() {
 						(password1 === password2)
 					) {
 						setIsMatched(true);
-						if (firstName !== "" && lastName !== "" && email !== "") {
+						if (firstName !== "" && lastName !== "" && email !== "" && middleName !== "" && gender !== "" && homeAddress !== "") {
 								setIsAllowed(true);
 								setIsActive(true);
 						} else {
@@ -54,13 +57,13 @@ export default function Register() {
 					setIsValidNumber(false);
 					setIsAllowed(false);
 			};
-	},[firstName, lastName, email, password1, password2, mobileNo]);
+	},[firstName, lastName, middleName, email, password1, password2, mobileNo, gender, homeAddress]);
 
     //catch the 'click' event that will happen on the button component
 	const registerUser = async (eventSubmit) => {
 		eventSubmit.preventDefault()
 
-		const isRegistered = await fetch("https://protected-beyond-20929.herokuapp.com/users/register", {
+		const isRegistered = await fetch("https://fierce-retreat-87941.herokuapp.com/users/register", {
 				method: "POST",
 				headers: {
 						"Content-Type": "application/json"
@@ -68,9 +71,12 @@ export default function Register() {
 				body: JSON.stringify({
 				    firstName: firstName,
 				    lastName: lastName,
+				    middleName: middleName,
 				    email: email,
 				    password: password1,
-				    mobileNo: mobileNo
+				    mobileNo: mobileNo,
+				    gender: gender,
+				    homeAddress: homeAddress
 				})
 		}).then(response => response.json()).then(data => {
 			if (data.email) {
@@ -98,8 +104,8 @@ export default function Register() {
 		} else {
 			Swal.fire({
 				icon: "error",
-				title: "Something went wrong.",
-				text: "Try again later."
+				title: "Email already used.",
+				text: "Please use another email to proceed."
 			})
 		}
 	};
@@ -140,6 +146,36 @@ export default function Register() {
 			   			required
 			   			value={lastName}
 			   			onChange={e => setLastName(e.target.value)}
+			   		/>
+			   </Form.Group>
+
+			   <Form.Group>
+			   		<Form.Label>Middle Name: </Form.Label>
+			   		<Form.Control type="text" 
+			   		   placeholder="Enter your Middle Name"
+			   		   required 
+			   		   value={middleName}
+			   		   onChange={event => setMiddleName(event.target.value)}
+			   		/>
+			   </Form.Group>
+
+			   <Form.Group>
+			   		<Form.Label>Gender: </Form.Label>
+			   		<Form.Control type="text" 
+			   		   placeholder="Enter your Gender Name"
+			   		   required 
+			   		   value={gender}
+			   		   onChange={event => setGender(event.target.value)}
+			   		/>
+			   </Form.Group>
+
+			   <Form.Group>
+			   		<Form.Label>Home Address: </Form.Label>
+			   		<Form.Control type="text" 
+			   		   placeholder="Enter your Home Address"
+			   		   required 
+			   		   value={homeAddress}
+			   		   onChange={event => setHomeAddress(event.target.value)}
 			   		/>
 			   </Form.Group>
 

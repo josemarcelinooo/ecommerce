@@ -26,16 +26,26 @@ function App() {
   useEffect(() => {
     let token = localStorage.getItem('accessToken');
 
-    fetch("https://protected-beyond-20929.herokuapp.com/users/details", {
+    fetch("https://fierce-retreat-87941.herokuapp.com/users/profile", {
         headers: {
           Authorization: `Bearer ${token}`
         }
     })
     .then(res => res.json())
     .then(convertedData => {
-      console.log(convertedData)
+      if (typeof convertedData._id !== "undefined") {
+        setUser({
+          id: convertedData._id,
+          isAdmin: convertedData.isAdmin
+        })
+      } else {
+        setUser({
+          id: null,
+          isAdmin: null
+        })
+      }
     })
-  }, []);
+  }, [user]);
 
   return (
     <UserProvider value={{user, setUser}}>

@@ -47,7 +47,7 @@ export default function Login() {
 	const loginUser = async (event) => {
 		event.preventDefault(); 
 
-		fetch("https://protected-beyond-20929.herokuapp.com/users/login", {
+		fetch("https://fierce-retreat-87941.herokuapp.com/users/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
