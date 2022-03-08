@@ -2,8 +2,9 @@ import Hero from './../components/Banner';
 import {Container, Form, Button} from 'react-bootstrap';
 import Swal from 'sweetalert2';
 const data = {
-	title: 'Welcome to the Update Course Page',
-	content: 'Update Course on this page'
+	title: 'Welcome to the Update Product Page',
+	content: 'Update Product on this page',
+	cta: "View Products Here"
 };
 
 export default function Update () {
