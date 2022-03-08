@@ -97,7 +97,6 @@ export default function ProductView(){
 								</Link>
 							</>
 					}
-
 			    </Card>
 		      </Container>
 		   </Col>
