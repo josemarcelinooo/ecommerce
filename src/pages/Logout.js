@@ -1,13 +1,22 @@
-import Hero from './../components/Banner';
+import { useContext, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
+import UserContext from '../UserContext';
 
-const data = {
-	title: 'Welcome to Logout',
-	content: 'Logout End of the Session'
-}
-
-//create a function that will describe the structure of the page.
 export default function Logout() {
+	const { setUser, unsetUser } = useContext(UserContext);
+
+	unsetUser();
+
+	useEffect(() => {
+		setUser({
+			id: null,
+			isAdmin: null
+		})
+	}, [setUser])
+
+	window.location.href = "/login";
+	
 	return(
-		<Hero bannerData={data} />
-	);
-};
+		<Navigate to="/login" replace={true} />
+	)
+}

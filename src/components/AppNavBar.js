@@ -1,11 +1,11 @@
-//Identify which components are neede to build the navigation
+import { useContext } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap'
-
-//implement Links in to navbar
 import { Link } from 'react-router-dom';
+import UserContext from '../UserContext';
 
-//we will now describe how we want our Navbar to look.
 function AppNavBar() {
+  const { user } = useContext(UserContext); 
+
   return(
     <Navbar bg="secondary" expand="lg">
       <Container>
@@ -16,18 +16,24 @@ function AppNavBar() {
             <Link to="/" className="nav-link">  
               Home          
             </Link> 
-            <Link to="/register" className="nav-link">  
-              Register          
-            </Link>   
-            <Link to="/login" className="nav-link">
-              Login
-            </Link>
+            {
+              user.id !== null ?
+                <Link to="/logout" className="nav-link">
+                  Logout
+                </Link>  
+              :
+                <>
+                  <Link to="/register" className="nav-link">  
+                    Register          
+                  </Link>   
+                  <Link to="/login" className="nav-link">
+                    Login
+                  </Link>
+                </>
+            }
             <Link to="/products" className="nav-link">
               Products
-            </Link> 
-            <Link to="/logout" className="nav-link">
-              Logout
-            </Link>   
+            </Link>  
           </Nav>
         </Navbar.Collapse>
       </Container>

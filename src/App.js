@@ -17,11 +17,19 @@ import { BrowserRouter as Router , Routes, Route } from 'react-router-dom';
 
 import './App.css';
 
-function App() {
+export default function App() {
   const [user, setUser] = useState({
     id: null,
     isAdmin: null
   })
+
+  const unsetUser = () => {
+    localStorage.clear();
+    setUser({
+      id: null,
+      isAdmin: null
+    })
+  };
 
   useEffect(() => {
     let token = localStorage.getItem('accessToken');
@@ -48,7 +56,7 @@ function App() {
   }, [user]);
 
   return (
-    <UserProvider value={{user, setUser}}>
+    <UserProvider value={{user, setUser, unsetUser}}>
       <Router>
          <AppNavBar />
          <Routes>
@@ -66,5 +74,3 @@ function App() {
     </UserProvider>
   );
 };
-
-export default App;
