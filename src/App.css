@@ -12,3 +12,7 @@
   background-color: lightsteelblue !important;
   width: 300px;
 }
+
+#navbarContent {
+  max-width: 100%;
+}

@@ -1,5 +1,3 @@
-//identify the components needed to create the register page
-
 import Hero from '../components/Banner';
 import {Container, Form, Button} from 'react-bootstrap';
 import Swal from 'sweetalert2';

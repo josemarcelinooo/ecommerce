@@ -9,7 +9,7 @@ import ErrorPage from './pages/Error';
 import ProductView from './pages/ProductView';
 import Logout from './pages/Logout';
 import AddProduct  from './pages/AddProduct'
-import UpdateCourse from './pages/UpdateCourse'
+import UpdateProduct from './pages/UpdateProduct'
 
 import { UserProvider } from './UserContext';
 
@@ -67,8 +67,8 @@ export default function App() {
             <Route path= '/login' element={<LoginPage />} />
             <Route path='/products/view/:id' element={<ProductView/>} />
             <Route path='/logout' element={<Logout/>} />
-            <Route path='/add/courses' element={<AddProduct/>} />
-            <Route path='/update/courses' element={<UpdateCourse/>} />
+            <Route path='/add/products' element={<AddProduct/>} />
+            <Route path='/update/products' element={<UpdateProduct/>} />
          </Routes>
       </Router>
     </UserProvider>

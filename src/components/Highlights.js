@@ -1,8 +1,4 @@
-//Grid Sytem and Card
 import {Row, Col, Card, Container} from 'react-bootstrap';
-
-
-//format the card with the help of utility classes of bootstrap
 
 export default function Highlights() {
 	return(

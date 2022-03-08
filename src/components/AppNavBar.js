@@ -8,7 +8,7 @@ function AppNavBar() {
 
   return(
     <Navbar bg="secondary" expand="lg">
-      <Container>
+      <Container id="navbarContent">
         <Navbar.Brand> Pandora's Box </Navbar.Brand> 
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse>

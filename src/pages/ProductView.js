@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect, useContext } from 'react';
+import UserContext from "../UserContext";
 import Hero from './../components/Banner';
-
 import {Row, Col, Card, Button, Container} from 'react-bootstrap';
-
 import Swal from 'sweetalert2';
-
 import { Link, useParams } from 'react-router-dom'; 
 
 const data = {
@@ -15,8 +12,8 @@ const data = {
 }
 
 export default function ProductView(){
+	const { user } = useContext(UserContext);
 
-	// state of our course details
 	const [productInfo, setProductInfo] = useState({
 		name: null,
 		description: null,
@@ -45,6 +42,16 @@ export default function ProductView(){
     	);
     }; 
 
+	const addToCart = () => {
+		return(
+			Swal.fire({
+				icon: "success",
+				title: "Successfully added to cart!",
+				text: "Add more products and earn more points!"
+			})
+		)
+	}
+
 	return(
 	  <>
 		<Hero bannerData={data} />
@@ -70,13 +77,27 @@ export default function ProductView(){
 						</Card.Text>
 			        </Card.Body>
 
-			        <Button variant="success" className="btn-block" onClick={buy}> 
-			        	Buy Now
-			        </Button>
+					{
+						user.id ?
+							<>
+								<Button variant="success" className="btn-block" onClick={buy}> 
+			        				Buy Now
+			        			</Button>
+								<Button variant="info" className="btn-block" onClick={addToCart}>
+									Add to Cart
+								</Button>
+							</>
+						:
+							<>
+								<Link className="btn btn-success btn-block" to="/register"> 
+			        				Register
+			        			</Link>
+								<Link className="btn btn-info btn-block" to="/login">
+									Login
+								</Link>
+							</>
+					}
 
-			        <Link className="btn btn-info btn-block mb-5" to="/login">
-			        	Add to Wishlist
-			        </Link>
 			    </Card>
 		      </Container>
 		   </Col>
