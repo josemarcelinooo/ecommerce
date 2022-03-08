@@ -95,8 +95,7 @@ export default function Login() {
 			<Navigate to="/" replace={true}/>
 		:
 			<>
-				<Hero bannerData={data} />
-				<Container>
+				<Container className="mt-5">
 					<h1 className="text-center">Login Form </h1>
 					<Form onSubmit={e => loginUser(e)}>
 						<Form.Group>
@@ -110,9 +109,9 @@ export default function Login() {
 							/>
 							{
 								isValid ?
-									<h6 className="text-success"> Email is valid. </h6>
+									<h6 className="text-success mt-2"> Email is valid. </h6>
 								:
-									<h6 className="text-muted"> Email is invalid. </h6>
+									<h6 className="text-muted mt-2"> Email is invalid. </h6>
 							}
 						</Form.Group>
 						<Form.Group>

@@ -117,8 +117,7 @@ export default function Register() {
 			<Navigate to="/" replace={true}/>
 		:
 		<>
-			<Hero bannerData={data}/>
-			<Container>
+			<Container className="mt-5">
 				{
 					isAllowed ?
 						<h1 className="text-center text-success">You May Now Register!</h1>

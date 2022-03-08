@@ -16,6 +16,9 @@ function AppNavBar() {
             <Link to="/" className="nav-link">  
               Home          
             </Link> 
+            <Link to="/products" className="nav-link">
+              Products
+            </Link>  
             {
               user.id !== null ?
                 <Link to="/logout" className="nav-link">
@@ -31,9 +34,6 @@ function AppNavBar() {
                   </Link>
                 </>
             }
-            <Link to="/products" className="nav-link">
-              Products
-            </Link>  
           </Nav>
         </Navbar.Collapse>
       </Container>
