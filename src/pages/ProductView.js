@@ -35,12 +35,12 @@ export default function ProductView(){
 		});
 	}, [id])
 
-    const enroll = () => {
+    const buy = () => {
     	return(
     		Swal.fire({
     		   icon: "success",
-    		   title: 'Enrolled Successfully!',
-    		   text: 'Thank you for enrolling to this course'
+    		   title: 'Product has been purchased!',
+    		   text: 'Thank you for your purchase.'
     		})
     	);
     }; 
@@ -51,37 +51,33 @@ export default function ProductView(){
 		<Row>
 		   <Col>
 		      <Container>
-			      <Card className="text-center">
-			         <Card.Body>
-			            {/*<!-- Insert Comment Here --> */}
-			            {/* Course Name */}
-			         	<Card.Title>
-			         		<h2> {productInfo.name} </h2>
-			         	</Card.Title>
-			         	{/*  Course Description */}
-			         	<Card.Subtitle>
-			         		<h6 className="my-4"> Description: </h6>
-			         	</Card.Subtitle>
-			         	<Card.Text>
-			         		{productInfo.description}
-			         	</Card.Text>
-			         	{/*  Course Price */}
-			         	<Card.Subtitle>
-			         		<h6 className="my-4"> Price: </h6>
-			         	</Card.Subtitle>
-			         	<Card.Text>
-			         		₱{productInfo.price}
-			         	</Card.Text>
-			         </Card.Body>
+			    <Card className="text-center">
+			        <Card.Body>
+						<Card.Title>
+							<h2> {productInfo.name} </h2>
+						</Card.Title>
+						<Card.Subtitle>
+							<h6 className="my-4"> Description: </h6>
+						</Card.Subtitle>
+						<Card.Text>
+							{productInfo.description}
+						</Card.Text>
+						<Card.Subtitle>
+							<h6 className="my-4"> Price: </h6>
+						</Card.Subtitle>
+						<Card.Text>
+							₱{productInfo.price}
+						</Card.Text>
+			        </Card.Body>
 
-			         <Button variant="success" className="btn-block" onClick={enroll}> 
-			            Buy Now
-			         </Button>
+			        <Button variant="success" className="btn-block" onClick={buy}> 
+			        	Buy Now
+			        </Button>
 
-			         <Link className="btn btn-info btn-block mb-5" to="/login">
-			         	Add to Wishlist
-			         </Link>
-			      </Card>
+			        <Link className="btn btn-info btn-block mb-5" to="/login">
+			        	Add to Wishlist
+			        </Link>
+			    </Card>
 		      </Container>
 		   </Col>
 		</Row>
