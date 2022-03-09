@@ -8,8 +8,9 @@ import Catalog from './pages/Products';
 import ErrorPage from './pages/Error';
 import ProductView from './pages/ProductView';
 import Logout from './pages/Logout';
-import AddProduct  from './pages/AddProduct'
-import UpdateProduct from './pages/UpdateProduct'
+import AddProduct  from './pages/AddProduct';
+import UpdateProduct from './pages/UpdateProduct';
+import ProfileView from "./pages/ProfileView";
 
 import { UserProvider } from './UserContext';
 
@@ -69,6 +70,7 @@ export default function App() {
             <Route path='/logout' element={<Logout/>} />
             <Route path='/add/products' element={<AddProduct/>} />
             <Route path='/update/products' element={<UpdateProduct/>} />
+            <Route path='/users/profile' element={<ProfileView/>} />
          </Routes>
       </Router>
     </UserProvider>

@@ -1,14 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
-import Hero from '../components/Banner';
 import { Container, Form, Button } from 'react-bootstrap';
 import Swal from 'sweetalert2'; 
 import { Navigate } from "react-router-dom";
 import UserContext from "../UserContext";
-
-const data = {
-  title: 'Welcome to the Register Page',
-  content: 'Create an Account to Enroll'
-}
 
 export default function Register() {
 	const { user } = useContext(UserContext);
@@ -158,7 +152,7 @@ export default function Register() {
 				<Form.Group>
 						<Form.Label>Gender: </Form.Label>
 						<Form.Control type="text" 
-						placeholder="Enter your Gender Name"
+						placeholder="Enter your Gender"
 						required 
 						value={gender}
 						onChange={event => setGender(event.target.value)}
