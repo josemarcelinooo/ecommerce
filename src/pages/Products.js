@@ -4,11 +4,17 @@ import ProductCard from './../components/ProductCard';
 import { Container } from 'react-bootstrap';
 import UserContext from "../UserContext";
 
-const bannerDetails = {
+const bannerDetailsUser = {
    title: 'Product Catalog',
    content: 'Browse through our Catalog of Products',
    cta: 'See Items on Sale'
 }
+
+const bannerDetailsAdmin = {
+	title: 'Product Catalog',
+	content: 'List of Products',
+	cta: 'See All Active Products'
+ }
 
 export default function Products() {
 	const { user } = useContext(UserContext);
@@ -40,11 +46,19 @@ export default function Products() {
 	}, [user.isAdmin]);
 
 	return(
-		<>
-			<Hero bannerData={bannerDetails} />
-			<Container id="productSection">
-				{productsCollection}
-			</Container>
-		</>
+		user.isAdmin ?
+			<>
+				<Hero bannerData={bannerDetailsAdmin} />
+				<Container id="productSection">
+					{productsCollection}
+				</Container>
+			</>
+		:
+			<>
+				<Hero bannerData={bannerDetailsUser} />
+				<Container id="productSection">
+					{productsCollection}
+				</Container>
+			</>
 	);
 };

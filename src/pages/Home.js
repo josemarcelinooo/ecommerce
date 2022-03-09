@@ -1,18 +1,16 @@
-import Banner from './../components/Banner'
-import Highlights from './../components/Highlights'
-
-const data = {
-  title: `Pandora's Box`,
-  content: 'You want it, we have it.',
-  cta: `Shop now`
-}
-
+import { Container, Row, Col } from "react-bootstrap";
 
 export default function Home() {
    return(
-   	<div>
-	   	 <Banner bannerData={data}/>
-	   	 <Highlights />
-   	</div>
+      <Container id="openingHome">
+        <Row>
+          <Col id="homeContent">
+            <h1 className="mt-5">Anytime and anywhere, at your fingertips.</h1>
+            <h5>Have access to the world's best curated repository of productivity boosters.</h5>
+            <h5>At your own pace, of course.</h5>
+            <a className="btn btn-primary mt-2" href="/products">Shop Now</a>
+          </Col>
+        </Row>
+      </Container>
    );
 };

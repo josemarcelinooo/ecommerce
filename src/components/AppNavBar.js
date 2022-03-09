@@ -7,7 +7,7 @@ function AppNavBar() {
   const { user } = useContext(UserContext); 
 
   return(
-    <Navbar bg={user.isAdmin ? "primary" : "secondary"} expand="lg">
+    <Navbar bg={user.isAdmin ? "primary" : "light"} expand="lg">
       <Container id="navbarContent">
         <Navbar.Brand > Pandora's Box </Navbar.Brand> 
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
