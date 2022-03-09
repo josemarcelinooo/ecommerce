@@ -52,6 +52,21 @@ export default function ProductView(){
 		)
 	}
 
+	const deleteProduct = async () => {
+		await fetch(`https://fierce-retreat-87941.herokuapp.com/products/${id}`, {
+			method: "DELETE",
+			headers: {
+				Authorization: `Bearer ${localStorage.accessToken}`
+			}
+		})
+		await Swal.fire({
+			icon: "success",
+			title: "Successfully deleted product.",
+			text: "Product has now been removed from the database."
+		})
+		window.location.href = "/products";
+	}
+
 	return(
 	  <>
 		<Hero bannerData={data} />
@@ -79,14 +94,24 @@ export default function ProductView(){
 
 					{
 						user.id ?
-							<>
-								<Button variant="success" className="btn-block" onClick={buy}> 
-			        				Buy Now
-			        			</Button>
-								<Button variant="info" className="btn-block" onClick={addToCart}>
-									Add to Cart
-								</Button>
-							</>
+							user.isAdmin ?
+								<>
+									<Button variant="warning" className="btn-block" onClick={buy}> 
+										Update
+									</Button>
+									<Button variant="danger" className="btn-block" onClick={deleteProduct}>
+										Delete
+									</Button>
+								</>
+							:
+								<>
+									<Button variant="success" className="btn-block" onClick={buy}> 
+										Buy Now
+									</Button>
+									<Button variant="info" className="btn-block" onClick={addToCart}>
+										Add to Cart
+									</Button>
+								</>
 						:
 							<>
 								<Link className="btn btn-success btn-block" to="/register"> 
