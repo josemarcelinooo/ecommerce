@@ -7,9 +7,9 @@ function AppNavBar() {
   const { user } = useContext(UserContext); 
 
   return(
-    <Navbar bg="secondary" expand="lg">
+    <Navbar bg="primary" expand="lg">
       <Container id="navbarContent">
-        <Navbar.Brand> Pandora's Box </Navbar.Brand> 
+        <Navbar.Brand > Pandora's Box </Navbar.Brand> 
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse>
           <Nav className="ml-auto">

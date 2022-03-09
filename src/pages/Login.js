@@ -1,17 +1,9 @@
-//identify the components that will used for this page
-
 import { useState, useEffect, useContext } from 'react';
 
-import Hero from './../components/Banner';
 import {Form, Button, Container} from 'react-bootstrap';
 import Swal from 'sweetalert2'; 
 import { Navigate } from "react-router-dom";
 import UserContext from "../UserContext";
-
-const data = {
-  title: 'Welcome to Login',
-  content: 'Sign in your account below'
-}
 
 export default function Login() {
 	const { user, setUser } = useContext(UserContext);
