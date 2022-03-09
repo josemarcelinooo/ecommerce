@@ -7,7 +7,7 @@ function AppNavBar() {
   const { user } = useContext(UserContext); 
 
   return(
-    <Navbar bg="primary" expand="lg">
+    <Navbar bg={user.isAdmin ? "primary" : "secondary"} expand="lg">
       <Container id="navbarContent">
         <Navbar.Brand > Pandora's Box </Navbar.Brand> 
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
@@ -21,6 +21,16 @@ function AppNavBar() {
             </Link>  
             {
               user.id !== null ?
+                user.isAdmin ?
+                <>
+                <Link to="/add/products" className="nav-link">
+                  Add Product
+                </Link>  
+                <Link to="/logout" className="nav-link">
+                  Logout
+                </Link>  
+                </>
+                :
                 <Link to="/logout" className="nav-link">
                   Logout
                 </Link>  

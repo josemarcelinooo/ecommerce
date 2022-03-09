@@ -69,7 +69,7 @@ export default function App() {
             <Route path='/products/view/:id' element={<ProductView/>} />
             <Route path='/logout' element={<Logout/>} />
             <Route path='/add/products' element={<AddProduct/>} />
-            <Route path='/update/products' element={<UpdateProduct/>} />
+            <Route path='/products/:id' element={<UpdateProduct/>} />
             <Route path='/users/profile' element={<ProfileView/>} />
          </Routes>
       </Router>

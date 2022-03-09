@@ -96,7 +96,7 @@ export default function ProductView(){
 						user.id ?
 							user.isAdmin ?
 								<>
-									<Button variant="warning" className="btn-block" onClick={buy}> 
+									<Button variant="warning" className="btn-block" onClick={() => window.location.href = `/products/${id}`}> 
 										Update
 									</Button>
 									<Button variant="danger" className="btn-block" onClick={deleteProduct}>
