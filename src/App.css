@@ -28,12 +28,13 @@
   max-width: 100%;
   height: 70vh;
   position: relative;
-  background-image: url("https://i.pinimg.com/originals/eb/60/82/eb60823cf0dd7c2a92edee36ed2a3fe6.jpg");
+  background-image: url("https://images.unsplash.com/photo-1542728928-ee495082a3c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80");
   background-size: cover;                
   background-repeat: no-repeat;
   background-position: center center;  
   margin-top: 2%;
 }
+/* https://i.pinimg.com/originals/eb/60/82/eb60823cf0dd7c2a92edee36ed2a3fe6.jpg */
 
 #homeContent {
   margin: 0;
@@ -42,7 +43,7 @@
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  color: white;
+  color: black;
 }
 
 #cardHome {
@@ -65,6 +66,76 @@
 
 #productsOpening {
   margin-top: 2%;
-  background-image: url("https://wallpaper.dog/large/5557995.jpg");
+  background-image: url("https://images.unsplash.com/photo-1504204267155-aaad8e81290d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
   max-width: 100%;
+}
+
+#viewProductImage {
+  width: 50%;
+  height: 50%;
+}
+
+#productContainer {
+  height: 100vh;
+  max-width: 100%;
+}
+
+#registerContainer {
+  width: 75%;
+}
+
+#imageContainer {
+  background-image: url("https://images.unsplash.com/photo-1483794344563-d27a8d18014e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+  max-width: 100%;
+}
+
+#loginContainer {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 75%;
+  color: black;
+}
+
+#imageContainerLogin {
+  background-image: url("https://images.unsplash.com/photo-1487700160041-babef9c3cb55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2052&q=80");
+  height: 100vh;
+  max-width: 100%;
+}
+
+#productViewRow {
+  max-width: 100%;
+}
+
+#addProduct {
+  background-image: url("https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80");
+  height: 100vh;
+}
+
+#addProductContent {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 75%;
+}
+
+#updateProduct {
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1494537176433-7a3c4ef2046f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80");
+}
+
+#updateProductContent {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 75%;
 }

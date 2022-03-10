@@ -55,9 +55,9 @@ export default function UpdateProduct () {
 
 	return(
 		user.isAdmin ?
-		<div>
-			<Container>
-				<h1 className="text-center mt-5">Update Product Form</h1>
+		<div id="updateProduct">
+			<Container id="updateProductContent">
+				<h1 className="text-center">Update Product Form</h1>
 				<Form onSubmit={e => updateProduct(e)}>
 					<Form.Group>
 						<Form.Label>Product Name: </Form.Label>

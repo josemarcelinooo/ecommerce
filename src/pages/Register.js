@@ -111,16 +111,16 @@ export default function Register() {
 			<Navigate to="/" replace={true}/>
 		:
 		<>
-			<Container className="mt-5">
+			<Container id="imageContainer">
+			<Container className="mt-5 pt-5 pb-5" id="registerContainer">
 				{
 					isAllowed ?
 						<h1 className="text-center text-success">You May Now Register!</h1>
 					:
-						<h1 className="text-center">Register Form</h1>
+						<h1 className="text-center text-dark">Registration Form</h1>
 				}
-				<h6 className="text-center mt-3 text-secondary">Fill Up the Form Below</h6>
 
-				<Form onSubmit={e => registerUser(e)}>
+				<Form onSubmit={e => registerUser(e)} className="text-dark">
 				<Form.Group>
 						<Form.Label>First Name: </Form.Label>
 						<Form.Control type="text" 
@@ -244,6 +244,7 @@ export default function Register() {
 							</Button>
 				}
 				</Form>
+			</Container>
 			</Container>
 		</>
 	);

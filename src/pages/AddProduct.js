@@ -58,8 +58,8 @@ export default function Add () {
 
 	return(
 		user.isAdmin ?
-		<div>
-			<Container>
+		<div id="addProduct">
+			<Container id="addProductContent">
 				<h1 className="text-center mt-5">Add Product Form</h1>
 				<Form onSubmit={e => addProduct(e)}>
 					<Form.Group>

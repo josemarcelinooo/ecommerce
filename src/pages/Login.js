@@ -87,54 +87,56 @@ export default function Login() {
 			<Navigate to="/" replace={true}/>
 		:
 			<>
-				<Container className="mt-5">
-					<h1 className="text-center">Login Form </h1>
-					<Form onSubmit={e => loginUser(e)}>
-						<Form.Group>
-							<Form.Label>Email: </Form.Label>
-							<Form.Control 
-								type="email"
-								placeholder="Enter Email Here"
-								required
-								value={email}
-								onChange={event => {setEmail(event.target.value)} }
-							/>
+				<Container id="imageContainerLogin">
+					<Container id="loginContainer">
+						<h1 className="text-center">User Login</h1>
+						<Form onSubmit={e => loginUser(e)}>
+							<Form.Group>
+								<Form.Label>Email: </Form.Label>
+								<Form.Control 
+									type="email"
+									placeholder="Enter Email Here"
+									required
+									value={email}
+									onChange={event => {setEmail(event.target.value)} }
+								/>
+								{
+									isValid ?
+										<h6 className="text-success mt-2"> Email is valid. </h6>
+									:
+										<h6 className="text-muted mt-2"> Email is invalid. </h6>
+								}
+							</Form.Group>
+							<Form.Group>
+								<Form.Label>Password: </Form.Label>
+								<Form.Control 
+									type="password"
+									placeholder="Enter Password Here"
+									required
+									value={password}
+									onChange={e => {setPassword(e.target.value)} }
+								/>
+							</Form.Group>
 							{
-								isValid ?
-									<h6 className="text-success mt-2"> Email is valid. </h6>
+								isActive ?
+									<Button
+									className="btn-block" 
+									variant="success"
+									type="submit"
+									>
+									Login
+									</Button>
 								:
-									<h6 className="text-muted mt-2"> Email is invalid. </h6>
+									<Button
+									className="btn-block" 
+									variant="secondary"
+									disabled
+									>
+									Login
+									</Button>
 							}
-						</Form.Group>
-						<Form.Group>
-							<Form.Label>Password: </Form.Label>
-							<Form.Control 
-								type="password"
-								placeholder="Enter Password Here"
-								required
-								value={password}
-								onChange={e => {setPassword(e.target.value)} }
-							/>
-						</Form.Group>
-						{
-							isActive ?
-								<Button
-								className="btn-block" 
-								variant="success"
-								type="submit"
-								>
-								Login
-								</Button>
-							:
-								<Button
-								className="btn-block" 
-								variant="secondary"
-								disabled
-								>
-								Login
-								</Button>
-						}
-					</Form>
+						</Form>
+					</Container>
 				</Container>
 			</>
 	);

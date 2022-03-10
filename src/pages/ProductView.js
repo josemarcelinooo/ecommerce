@@ -10,7 +10,8 @@ export default function ProductView(){
 	const [productInfo, setProductInfo] = useState({
 		name: null,
 		description: null,
-		price: null
+		price: null,
+		imageUrl: null
 	});
 
 	const {id} = useParams()
@@ -20,7 +21,8 @@ export default function ProductView(){
 			setProductInfo({
 				name: convertedData.name,
 				description: convertedData.description,
-				price: convertedData.price
+				price: convertedData.price,
+				imageUrl: convertedData.imageUrl
 			})
 		});
 	}, [id])
@@ -62,23 +64,18 @@ export default function ProductView(){
 
 	return(
 	  <>
-		<Row className="mt-5">
-		   <Col>
+		<Row className="mt-5" id="productViewRow">
+		   <Col id="productContainer">
 		      <Container className="mt-5">
-			    <Card className="text-center">
+			    <Card className="text-center border-0">
 			        <Card.Body>
+						<Card.Img id="viewProductImage" variant="top" src={productInfo.imageUrl} />
 						<Card.Title>
 							<h2> {productInfo.name} </h2>
 						</Card.Title>
-						<Card.Subtitle>
-							<h6 className="my-4"> Description: </h6>
-						</Card.Subtitle>
 						<Card.Text>
 							{productInfo.description}
 						</Card.Text>
-						<Card.Subtitle>
-							<h6 className="my-4"> Price: </h6>
-						</Card.Subtitle>
 						<Card.Text>
 							₱{productInfo.price}
 						</Card.Text>
