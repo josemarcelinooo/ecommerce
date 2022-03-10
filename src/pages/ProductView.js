@@ -1,15 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
 import UserContext from "../UserContext";
-import Hero from './../components/Banner';
 import {Row, Col, Card, Button, Container} from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import { Link, useParams } from 'react-router-dom'; 
-
-const data = {
-	title: `Welcome to Pandora's Box!`,
-	content: 'Check out our school campus',
-	cta: 'Buy Now'
-}
 
 export default function ProductView(){
 	const { user } = useContext(UserContext);
@@ -69,10 +62,9 @@ export default function ProductView(){
 
 	return(
 	  <>
-		<Hero bannerData={data} />
-		<Row>
+		<Row className="mt-5">
 		   <Col>
-		      <Container>
+		      <Container className="mt-5">
 			    <Card className="text-center">
 			        <Card.Body>
 						<Card.Title>

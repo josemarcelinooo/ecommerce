@@ -10,6 +10,7 @@ export default function Add () {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [price, setPrice] = useState("");
+	const [imageUrl, setImageUrl] = useState("");
 
 	const addProduct = async (event) => {
 		event.preventDefault()
@@ -23,7 +24,8 @@ export default function Add () {
 			body: JSON.stringify({
 				name: name,
 				description: description,
-				price: price
+				price: price,
+				imageUrl: imageUrl
 			})
 		}).then(response => response.json()).then(data => {
 			if (data.name) {
@@ -71,6 +73,10 @@ export default function Add () {
 					<Form.Group>
 						<Form.Label>Price: </Form.Label>
 						<Form.Control type="number" placeholder="Enter Price" required value={price} onChange={e => setPrice(e.target.value)} />
+					</Form.Group>
+					<Form.Group>
+						<Form.Label>Image URL: </Form.Label>
+						<Form.Control type="text" placeholder="Enter Image URL" required value={imageUrl} onChange={e => setImageUrl(e.target.value)} />
 					</Form.Group>
 					<Button variant="success" className="btn-block" type="submit">Add Product
 					</Button>

@@ -7,8 +7,8 @@
   background-color: lightblue !important; 
 }
 
-.productCard {
-  background-color: lightsteelblue !important;
+#productCard {
+  background-color: white !important;
   width: 15%;
 }
 
@@ -61,4 +61,10 @@
 
 #footerContent {
   padding-top: 0.75rem;
+}
+
+#productsOpening {
+  margin-top: 2%;
+  background-image: url("https://wallpaper.dog/large/5557995.jpg");
+  max-width: 100%;
 }

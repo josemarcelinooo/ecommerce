@@ -6,7 +6,7 @@ import UserContext from "../UserContext";
 
 const bannerDetailsUser = {
    title: 'Product Catalog',
-   content: 'Browse through our Catalog of Products',
+   content: 'Always available, anywhere.',
    cta: 'See Items on Sale'
 }
 
@@ -52,6 +52,9 @@ export default function Products() {
 				<Container id="productSection">
 					{productsCollection}
 				</Container>
+				<div class="footer"> 
+          			<p className="ml-5" id="footerContent">© Pandora's Box 2022. All rights reserved.</p>
+        		</div>
 			</>
 		:
 			<>
@@ -59,6 +62,9 @@ export default function Products() {
 				<Container id="productSection">
 					{productsCollection}
 				</Container>
+				<div class="footer"> 
+          			<p className="ml-5 mt-3" id="footerContent">© Pandora's Box 2022. All rights reserved.</p>
+        		</div>
 			</>
 	);
 };
