@@ -38,9 +38,14 @@ function AppNavBar() {
                 </Link>  
                 </>
                 :
-                <Link to="/logout" className="nav-link text-dark">
-                  Logout
-                </Link>  
+                <>
+                  <Link to="/users/profile" className="nav-link text-dark">
+                    Profile
+                  </Link> 
+                  <Link to="/logout" className="nav-link text-dark">
+                    Logout
+                  </Link>  
+                </>
               :
                 <>
                   <Link to="/register" className="nav-link text-dark">  

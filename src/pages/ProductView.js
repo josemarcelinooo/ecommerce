@@ -39,14 +39,24 @@ export default function ProductView(){
     	);
     }; 
 
-	const addToCart = () => {
-		return(
-			Swal.fire({
-				icon: "success",
-				title: "Successfully added to cart!",
-				text: "Add more products and earn more points!"
+	const addToCart = async () => {
+		await fetch(`https://fierce-retreat-87941.herokuapp.com/users/add-to-cart`, {
+			method: "POST",
+			headers: {
+				Authorization: `Bearer ${localStorage.accessToken}`,
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				productId: id,
+				quantity: 1
 			})
-		)
+		})
+		await Swal.fire({
+			icon: "success",
+			title: "Successfully added to cart.",
+			text: "Continue to browse and add more!"
+		})
+		window.location.href = "/products"
 	}
 
 	const deleteProduct = async () => {

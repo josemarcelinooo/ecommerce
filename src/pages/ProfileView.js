@@ -11,7 +11,7 @@ export default function ProfileView(){
         mobileNo: null,
         gender: null,
         homeAddress: null,
-        orders: null
+        orders: []
     });
 
     useEffect (() => {
@@ -33,38 +33,58 @@ export default function ProfileView(){
         })
     });
 
+    let grossAmount = 0;
+
+    const gross = () => {
+        userInfo.orders.map(order => {
+            return grossAmount += order.totalAmount;
+        })
+    }
+
+    gross();
+
     return(
         localStorage.accessToken ?
         <>
           <Row>
-             <Col>
-                <Container>
-                  <Card className="text-center">
+             <Col className="pr-0">
+                <Container className="mt-5 ml-0 mr-0 p-0" id="profile">
+                  <Card className="text-left border-0" id="profileContainer">
                       <Card.Body>
                         <Card.Text>
-                            {userInfo.firstName}
+                            First Name: {userInfo.firstName}
                         </Card.Text>
                         <Card.Text>
-                            {userInfo.lastName}
+                            Last Name: {userInfo.lastName}
                         </Card.Text>
                         <Card.Text>
-                            {userInfo.middleName}
+                            Middle Name: {userInfo.middleName}
                         </Card.Text>
                         <Card.Text>
-                            {userInfo.email}
+                            Email: {userInfo.email}
                         </Card.Text>
                         <Card.Text>
-                            {userInfo.mobileNo}
+                            Mobile No: {userInfo.mobileNo}
                         </Card.Text>
                         <Card.Text>
-                            {userInfo.gender}
+                            Gender: {userInfo.gender}
                         </Card.Text>
                         <Card.Text>
-                            {userInfo.homeAddress}
+                            Home Address: {userInfo.homeAddress}
                         </Card.Text>
-                        <Card.Text>
-                            {JSON.stringify(userInfo.orders)}
+                        <Card.Body>
+                        <Card.Text className="text-right">
+                            {userInfo.orders.map(order => <div key={order.id}>{order.products.map(
+                                product => 
+                                    <>
+                                        <div className="mt-5">Product Name: {product.productName}</div>
+                                        <div>Quantity: {product.quantity}</div>
+                                        <div>Total Amount: {order.totalAmount}</div>
+                                    </>
+                            )}</div>)}
+                            <div><h5 className="mt-3">Final Amount: {grossAmount}</h5></div>
                         </Card.Text>
+                        </Card.Body>
                       </Card.Body>
                   </Card>
                 </Container>
