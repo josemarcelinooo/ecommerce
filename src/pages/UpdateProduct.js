@@ -11,13 +11,14 @@ export default function UpdateProduct () {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [price, setPrice] = useState("");
+	const [imageUrl, setImageUrl] = useState("");
 
 	const { id } = useParams();
 
 	const updateProduct = async (event) => {
 		event.preventDefault()
 
-		const isAdded = await fetch(`https://fierce-retreat-87941.herokuapp.com/products/${id}`, {
+		const isUpdated = await fetch(`https://fierce-retreat-87941.herokuapp.com/products/${id}`, {
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${localStorage.accessToken}`,
@@ -26,13 +27,18 @@ export default function UpdateProduct () {
 			body: JSON.stringify({
 				name: name,
 				description: description,
-				price: price
+				price: price,
+				imageUrl: imageUrl,
 			})
 		}).then(response => response.json()).then(data => {
-			return true;
+			if (data.imageUrl) {
+				return true;
+			} else {
+				return false;
+			}
 		})
 
-		if (isAdded) {
+		if (isUpdated) {
 			await Swal.fire({
 				icon: "success",
 				title: "Product updated!",
@@ -42,6 +48,7 @@ export default function UpdateProduct () {
 			setName("");
 			setDescription("");
 			setPrice("");
+			setImageUrl("")
 
 			window.location.href = "/products";
 		} else {
@@ -70,6 +77,10 @@ export default function UpdateProduct () {
 					<Form.Group>
 						<Form.Label>Price: </Form.Label>
 						<Form.Control type="number" placeholder="Enter Price" required value={price} onChange={e => setPrice(e.target.value)} />
+					</Form.Group>
+					<Form.Group>
+						<Form.Label>Image URL: </Form.Label>
+						<Form.Control type="text" placeholder="Enter Image URL" required value={imageUrl} onChange={e => setImageUrl(e.target.value)} />
 					</Form.Group>
 					<Button variant="success" className="btn-block" type="submit">Update Product
 					</Button>

@@ -11,7 +11,8 @@ export default function ProductView(){
 		name: null,
 		description: null,
 		price: null,
-		imageUrl: null
+		imageUrl: null,
+		isActive: null,
 	});
 
 	const {id} = useParams()
@@ -22,7 +23,8 @@ export default function ProductView(){
 				name: convertedData.name,
 				description: convertedData.description,
 				price: convertedData.price,
-				imageUrl: convertedData.imageUrl
+				imageUrl: convertedData.imageUrl,
+				isActive: convertedData.isActive
 			})
 		});
 	}, [id])
@@ -62,12 +64,44 @@ export default function ProductView(){
 		window.location.href = "/products";
 	}
 
+	const archiveProduct = async () => {
+		await fetch(`https://fierce-retreat-87941.herokuapp.com/products/${id}/archive`, {
+			method: "PUT",
+			headers: {
+				Authorization: `Bearer ${localStorage.accessToken}`,
+				"Content-Type": "application/json"
+			}
+		})
+		await Swal.fire({
+			icon: "success",
+			title: "Successfully archived product.",
+			text: "Product will not be visible to regular users."
+		})
+		window.location.href = "/products";
+	}
+
+	const unarchiveProduct = async () => {
+		await fetch(`https://fierce-retreat-87941.herokuapp.com/products/${id}/unarchive`, {
+			method: "PUT",
+			headers: {
+				Authorization: `Bearer ${localStorage.accessToken}`,
+				"Content-Type": "application/json"
+			}
+		})
+		await Swal.fire({
+			icon: "success",
+			title: "Successfully unarchived product.",
+			text: "Product will now be visible to regular users."
+		})
+		window.location.href = "/products";
+	}
+
 	return(
 	  <>
 		<Row className="mt-5" id="productViewRow">
 		   <Col id="productContainer">
 		      <Container className="mt-5">
-			    <Card className="text-center border-0">
+			    <Card className="text-center border-0 pt-3">
 			        <Card.Body>
 						<Card.Img id="viewProductImage" variant="top" src={productInfo.imageUrl} />
 						<Card.Title>
@@ -85,12 +119,22 @@ export default function ProductView(){
 						user.id ?
 							user.isAdmin ?
 								<>
-									<Button variant="warning" className="btn-block" onClick={() => window.location.href = `/products/${id}`}> 
+									<Button variant="info" className="btn-block" onClick={() => window.location.href = `/products/${id}`}> 
 										Update
 									</Button>
 									<Button variant="danger" className="btn-block" onClick={deleteProduct}>
 										Delete
 									</Button>
+									{
+									productInfo.isActive ?
+										<Button variant="warning" className="btn-block" onClick={archiveProduct}>
+											Archive
+										</Button>
+									:
+										<Button variant="success" className="btn-block" onClick={unarchiveProduct}>
+											Unarchive
+										</Button>
+									}
 								</>
 							:
 								<>

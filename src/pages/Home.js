@@ -78,7 +78,7 @@ export default function Home() {
             </Card.Footer>
           </Card>
         </CardGroup>
-        <div class="footer"> 
+        <div className="footer"> 
           <p className="ml-5" id="footerContent">© Pandora's Box 2022. All rights reserved.</p>
         </div>
       </>

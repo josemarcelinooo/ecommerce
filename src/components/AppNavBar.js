@@ -9,16 +9,23 @@ function AppNavBar() {
   return(
     <Navbar fixed='top' bg="light" expand="lg">
       <Container id="navbarContent">
-        <Navbar.Brand className={user.isAdmin ? "text-success" : "text-dark"}> Pandora's Box </Navbar.Brand> 
+        <Navbar.Brand className={user.isAdmin ? "text-warning" : "text-dark"}> Pandora's Box </Navbar.Brand> 
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse>
           <Nav className="ml-auto">
             <Link to="/" className="nav-link text-dark">  
               Home          
             </Link> 
-            <Link to="/products" className="nav-link text-dark">
-              Products
-            </Link>  
+            {
+              user.isAdmin ?
+                <Link to="/products" className="nav-link text-dark">
+                  All Products
+                </Link>  
+              :
+                <Link to="/products" className="nav-link text-dark">
+                  Products
+                </Link>  
+            }
             {
               user.id !== null ?
                 user.isAdmin ?
