@@ -7,39 +7,39 @@ function AppNavBar() {
   const { user } = useContext(UserContext); 
 
   return(
-    <Navbar bg={user.isAdmin ? "primary" : "light"} expand="lg">
+    <Navbar fixed='top' bg="light" expand="lg">
       <Container id="navbarContent">
-        <Navbar.Brand > Pandora's Box </Navbar.Brand> 
+        <Navbar.Brand className={user.isAdmin ? "text-success" : "text-dark"}> Pandora's Box </Navbar.Brand> 
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse>
           <Nav className="ml-auto">
-            <Link to="/" className="nav-link">  
+            <Link to="/" className="nav-link text-dark">  
               Home          
             </Link> 
-            <Link to="/products" className="nav-link">
+            <Link to="/products" className="nav-link text-dark">
               Products
             </Link>  
             {
               user.id !== null ?
                 user.isAdmin ?
                 <>
-                <Link to="/add/products" className="nav-link">
+                <Link to="/add/products" className="nav-link text-dark">
                   Add Product
                 </Link>  
-                <Link to="/logout" className="nav-link">
+                <Link to="/logout" className="nav-link text-dark">
                   Logout
                 </Link>  
                 </>
                 :
-                <Link to="/logout" className="nav-link">
+                <Link to="/logout" className="nav-link text-dark">
                   Logout
                 </Link>  
               :
                 <>
-                  <Link to="/register" className="nav-link">  
+                  <Link to="/register" className="nav-link text-dark">  
                     Register          
                   </Link>   
-                  <Link to="/login" className="nav-link">
+                  <Link to="/login" className="nav-link text-dark">
                     Login
                   </Link>
                 </>
