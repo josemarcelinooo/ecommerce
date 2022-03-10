@@ -46,8 +46,7 @@ export default function Home() {
             <Card.Body>
               <Card.Title>Phones</Card.Title>
               <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This content is a little bit longer.
+                A dramatically more powerful camera system. A display so responsive, every interaction feels new again. The world’s fastest smartphone chip. Exceptional durability. And a huge leap in battery life.
               </Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -59,8 +58,7 @@ export default function Home() {
             <Card.Body>
               <Card.Title>Tablets</Card.Title>
               <Card.Text>
-                This card has supporting text below as a natural lead-in to additional
-                content.{' '}
+                The ultimate iPad experience. Now with breakthrough M1 performance, a breathtaking XDR display, and blazing‑fast 5G wireless. Buckle up.{' '}
               </Card.Text>
             </Card.Body>
             <Card.Footer>
@@ -72,9 +70,7 @@ export default function Home() {
             <Card.Body>
               <Card.Title>Computers</Card.Title>
               <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This card has even longer content than the first to
-                show that equal height action.
+                The most powerful MacBook Pro ever is here. With the blazing-fast M1 Pro or M1 Max chip — the first Apple silicon designed for pros — you get groundbreaking performance and amazing battery life. 
               </Card.Text>
             </Card.Body>
             <Card.Footer>
