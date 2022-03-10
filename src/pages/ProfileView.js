@@ -79,10 +79,11 @@ export default function ProfileView(){
                                     <>
                                         <div className="mt-5">Product Name: {product.productName}</div>
                                         <div>Quantity: {product.quantity}</div>
-                                        <div>Total Amount: {order.totalAmount}</div>
+                                        <div>Subtotal: {order.totalAmount}</div>
                                     </>
                             )}</div>)}
-                            <div><h5 className="mt-3">Final Amount: {grossAmount}</h5></div>
+                            <div><h5 className="mt-3">Total Amount: {grossAmount}</h5></div>
+                            <a className="btn btn-success mt-2" href="/">Checkout</a>
                         </Card.Text>
                         </Card.Body>
                       </Card.Body>
